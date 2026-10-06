@@ -1,0 +1,6 @@
+{
+  "name": "AR DesignBD - Creative Portfolio",
+  "description": "AR DesignBD - আব্দুর রহিমের প্রফেশনাল গ্রাফিক ডিজাইন, ব্র্যান্ডিং ও ক্রিয়েটিভ পোর্টফোলিও। Bilingual portfolio for Abdur Rahim (Bengali & English).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
