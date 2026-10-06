@@ -50,8 +50,8 @@ export const Hero: React.FC = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] text-balance">
               {lang === 'bn' ? (
                 <>
-                  <span className="text-white">সৃজনশীল ডিজাইন।</span>{' '}
-                  <span className="crimson-gradient-text">শক্তিশালী পরিচিতি।</span>
+                  <span className="text-white">আব্দুর রহিম</span>{' '}
+                  <span className="crimson-gradient-text">ডিজাইন ঘর</span>
                 </>
               ) : (
                 <>

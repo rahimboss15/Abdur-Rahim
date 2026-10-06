@@ -16,7 +16,7 @@ export const brandConfig = {
     en: 'Graphic Designer & Digital Creator',
   },
   tagline: {
-    bn: 'সৃজনশীল ডিজাইন। শক্তিশালী পরিচিতি।',
+    bn: 'আব্দুর রহিম ডিজাইন ঘর',
     en: 'Creative Design. Powerful Identity.',
   },
   brandType: {
