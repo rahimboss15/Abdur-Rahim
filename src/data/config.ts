@@ -38,6 +38,9 @@ export const brandConfig = {
     location: {
       bn: 'কোনাবাড়ী, গাজীপুর',
       en: 'Konabari, Gazipur',
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=Konabari,+Gazipur',
+      directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Konabari,+Gazipur',
+      embedUrl: 'https://maps.google.com/maps?q=Konabari,+Gazipur,+Bangladesh&t=&z=14&ie=UTF8&iwloc=&output=embed',
     },
     facebookUrl: 'https://www.facebook.com/Abrgaraphic',
     whatsappUrl: 'https://wa.me/8801923057893',

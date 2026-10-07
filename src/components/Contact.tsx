@@ -124,10 +124,16 @@ export const Contact: React.FC<ContactProps> = ({ selectedService }) => {
                 <p className="text-xs text-neutral-400 mt-1">
                   {lang === 'bn' ? brandConfig.founder.bn : brandConfig.founder.en} • {lang === 'bn' ? brandConfig.role.bn : brandConfig.role.en}
                 </p>
-                <p className="text-xs text-[#dfb86c] mt-1 flex items-center gap-1.5 font-medium">
+                <a
+                  href={brandConfig.contact.location.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-[#dfb86c] hover:underline mt-1 inline-flex items-center gap-1.5 font-medium transition-colors"
+                  title={lang === 'bn' ? 'গুগল ম্যাপে লোকেশন দেখুন' : 'View on Google Maps'}
+                >
                   <MapPin className="w-3.5 h-3.5 text-[#dfb86c]" />
                   <span>{lang === 'bn' ? brandConfig.contact.location.bn : brandConfig.contact.location.en}</span>
-                </p>
+                </a>
               </div>
 
               {/* Channels List */}

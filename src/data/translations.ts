@@ -64,6 +64,13 @@ export const translations = {
         support: 'পূর্ণ সাপোর্ট',
       },
       talkWithRahim: 'আব্দুর রহিমের সাথে কথা বলুন',
+      locationMap: {
+        title: 'লোকেশন ম্যাপ',
+        office: 'অফিস লোকেশন (কোনাবাড়ী, গাজীপুর)',
+        touchNotice: 'টাচ বা ক্লিক করে ম্যাপে সরাসরি অবস্থান দেখুন',
+        viewGoogleMaps: 'গুগল ম্যাপে দেখুন',
+        directions: 'দিকনির্দেশনা (Directions)',
+      },
     },
 
     // Services Section
@@ -318,6 +325,13 @@ export const translations = {
         support: 'Full Support',
       },
       talkWithRahim: 'Talk with Abdur Rahim',
+      locationMap: {
+        title: 'Location Map',
+        office: 'Office Location (Konabari, Gazipur)',
+        touchNotice: 'Touch or click to explore location and navigate',
+        viewGoogleMaps: 'View on Maps',
+        directions: 'Directions',
+      },
     },
 
     // Services Section

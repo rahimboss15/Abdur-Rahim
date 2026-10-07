@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { CheckCircle2, MessageSquare, Sparkles, User, Mail, MessageCircle, MapPin, Camera, Award, ShieldCheck, ArrowRight } from 'lucide-react';
+import { CheckCircle2, MessageSquare, Sparkles, User, Mail, MessageCircle, MapPin, Camera, Award, ShieldCheck, ArrowRight, Navigation, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { brandConfig } from '../data/config';
 
@@ -121,10 +121,17 @@ export const About: React.FC = () => {
                         </span>
                       </div>
 
-                      <div className="text-xs text-neutral-400 flex items-center gap-1.5 font-medium">
-                        <MapPin className="w-3.5 h-3.5 text-[#dfb86c]" />
+                      <a
+                        href={brandConfig.contact.location.mapUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-neutral-300 hover:text-[#dfb86c] flex items-center gap-1.5 font-medium px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group/addr"
+                        title={lang === 'bn' ? 'গুগল ম্যাপে লোকেশন দেখুন' : 'View on Google Maps'}
+                      >
+                        <MapPin className="w-3.5 h-3.5 text-[#dfb86c] group-hover/addr:scale-110 transition-transform" />
                         <span>{lang === 'bn' ? brandConfig.contact.location.bn : brandConfig.contact.location.en}</span>
-                      </div>
+                        <ExternalLink className="w-3 h-3 text-neutral-400 group-hover/addr:text-[#dfb86c] transition-colors ml-0.5" />
+                      </a>
                     </div>
 
                     <div>
@@ -139,6 +146,64 @@ export const About: React.FC = () => {
                     <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed max-w-2xl">
                       {t.about.leadText}
                     </p>
+                  </div>
+
+                  {/* Interactive Location Map Box - Fills the gap with touchable live Google Map */}
+                  <div className="rounded-xl overflow-hidden border border-[#dfb86c]/25 bg-[#0e0e17] shadow-xl group/map">
+                    {/* Map Header Bar */}
+                    <div className="px-3.5 py-2.5 bg-[#161625] border-b border-white/10 flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex items-center gap-2">
+                        <span className="relative flex h-2.5 w-2.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                        </span>
+                        <span className="text-xs font-bold text-white flex items-center gap-1.5">
+                          <MapPin className="w-3.5 h-3.5 text-[#dfb86c]" />
+                          <span>{t.about.locationMap?.office || (lang === 'bn' ? 'অফিস লোকেশন (কোনাবাড়ী, গাজীপুর)' : 'Office Location (Konabari, Gazipur)')}</span>
+                        </span>
+                      </div>
+
+                      <a
+                        href={brandConfig.contact.location.mapUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#dfb86c] hover:bg-[#edd28d] text-[#121217] text-[11px] font-bold shadow transition-all cursor-pointer"
+                        title={lang === 'bn' ? 'গুগল ম্যাপে পুরো ভিউ ও ন্যাভিগেশন দেখুন' : 'Open in Google Maps'}
+                      >
+                        <Navigation className="w-3 h-3" />
+                        <span>{t.about.locationMap?.viewGoogleMaps || (lang === 'bn' ? 'গুগল ম্যাপে দেখুন' : 'View on Maps')}</span>
+                        <ExternalLink className="w-3 h-3 ml-0.5" />
+                      </a>
+                    </div>
+
+                    {/* Interactive Google Map Embed */}
+                    <div className="relative w-full h-44 sm:h-48 md:h-52 bg-[#0a0a0f]">
+                      <iframe
+                        title="AR DesignBD Konabari Gazipur Location Map"
+                        src={brandConfig.contact.location.embedUrl}
+                        className="w-full h-full border-0 filter contrast-105 brightness-95 hover:brightness-100 transition-all"
+                        loading="lazy"
+                        allowFullScreen
+                      />
+                    </div>
+
+                    {/* Map Footer helper note with direct directions link */}
+                    <div className="px-3 py-2 bg-[#12121c] border-t border-white/5 flex flex-wrap items-center justify-between gap-2 text-[11px]">
+                      <span className="text-neutral-400 flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#dfb86c]" />
+                        <span>{t.about.locationMap?.touchNotice || (lang === 'bn' ? 'টাচ বা ক্লিক করে ম্যাপে সরাসরি অবস্থান দেখুন' : 'Touch or click to explore location and navigate')}</span>
+                      </span>
+
+                      <a
+                        href={brandConfig.contact.location.directionsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#dfb86c] hover:text-white font-semibold flex items-center gap-1 transition-colors"
+                      >
+                        <span>{t.about.locationMap?.directions || (lang === 'bn' ? 'দিকনির্দেশনা (Directions)' : 'Get Directions')}</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </a>
+                    </div>
                   </div>
 
                   {/* Horizontal Contact & Social Row */}

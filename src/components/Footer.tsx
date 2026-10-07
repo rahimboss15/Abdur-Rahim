@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Heart, MessageCircle, Phone, Mail } from 'lucide-react';
+import { ArrowUp, Heart, MessageCircle, Phone, Mail, MapPin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { brandConfig } from '../data/config';
 import { servicesData } from '../data/servicesData';
@@ -209,9 +209,16 @@ export const Footer: React.FC = () => {
                 <Mail className="w-3.5 h-3.5 text-[#dfb86c]" />
                 <span className="font-mono">{brandConfig.contact.email}</span>
               </a>
-              <p className="text-xs text-neutral-400">
-                {lang === 'bn' ? brandConfig.contact.location.bn : brandConfig.contact.location.en}
-              </p>
+              <a
+                href={brandConfig.contact.location.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-neutral-400 hover:text-[#dfb86c] transition-colors flex items-center gap-1.5"
+                title={lang === 'bn' ? 'গুগল ম্যাপে লোকেশন দেখুন' : 'View on Google Maps'}
+              >
+                <MapPin className="w-3.5 h-3.5 text-[#dfb86c]" />
+                <span>{lang === 'bn' ? brandConfig.contact.location.bn : brandConfig.contact.location.en}</span>
+              </a>
             </div>
           </div>
 
