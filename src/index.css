@@ -67,4 +67,73 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* Rotating glowing border lighting animations */
+@keyframes spinLinear {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinLinear 4s linear infinite;
+}
+
+.animate-spin-fast {
+  animation: spinLinear 2.5s linear infinite;
+}
+
+/* Conic gradient rotating border lighting */
+.rotating-border-gold-red {
+  position: relative;
+  overflow: hidden;
+}
+
+.rotating-border-gold-red::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    transparent 0deg,
+    #dfb86c 60deg,
+    #f43f5e 120deg,
+    transparent 180deg,
+    #dfb86c 240deg,
+    #9e1b32 300deg,
+    transparent 360deg
+  );
+  animation: spinLinear 4s linear infinite;
+  z-index: 0;
+}
+
+/* Red & Green rotating lighting for professional quality badge */
+.rotating-border-green-red {
+  position: relative;
+  overflow: hidden;
+}
+
+.rotating-border-green-red::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: conic-gradient(
+    #10b981 0deg,
+    #ef4444 90deg,
+    #059669 180deg,
+    #dc2626 270deg,
+    #10b981 360deg
+  );
+  animation: spinLinear 2.8s linear infinite;
+  z-index: 0;
+}
+
+
 

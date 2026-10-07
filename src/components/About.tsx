@@ -64,102 +64,131 @@ export const About: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
-          {/* Left Column: Portrait & Profile Card */}
+          {/* Left Column: Portrait & Profile Card with Rotating Light Border */}
           <div className="lg:col-span-5">
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#13131c] shadow-2xl group">
-              
-              {/* Portrait Visual */}
-              <div className="aspect-[4/5] w-full relative">
-                <ArtworkVisual
-                  type="portrait"
-                  title={lang === 'bn' ? brandConfig.founder.bn : brandConfig.founder.en}
-                  subtitle={lang === 'bn' ? brandConfig.role.bn : brandConfig.role.en}
-                  imageUrl={profileImage}
-                  aspectRatio="4:3"
-                  className="!h-full !aspect-auto"
-                />
+            {/* Rotating Light Border Container around the photo */}
+            <div className="relative p-[3px] rounded-2xl overflow-hidden shadow-2xl shadow-[#9e1b32]/20 group">
+              {/* Rotating Conic Lighting Animation */}
+              <div className="absolute -inset-[150%] animate-spin-slow bg-[conic-gradient(from_0deg,#dfb86c_0deg,#f43f5e_90deg,#9e1b32_180deg,#dfb86c_270deg,#dfb86c_360deg)] opacity-90" />
 
-                {/* Instant Photo Upload Button */}
-                <div className="absolute bottom-3 right-3 z-20">
-                  <input
-                    type="file"
-                    ref={fileInputRef}
-                    onChange={handleImageUpload}
-                    accept="image/*"
-                    className="hidden"
+              <div className="relative z-10 rounded-[14px] overflow-hidden bg-[#13131c]">
+                {/* Portrait Visual */}
+                <div className="aspect-[4/5] w-full relative">
+                  <ArtworkVisual
+                    type="portrait"
+                    title={lang === 'bn' ? brandConfig.founder.bn : brandConfig.founder.en}
+                    subtitle={lang === 'bn' ? brandConfig.role.bn : brandConfig.role.en}
+                    imageUrl={profileImage}
+                    aspectRatio="4:3"
+                    className="!h-full !aspect-auto"
                   />
-                  <button
-                    type="button"
-                    onClick={() => fileInputRef.current?.click()}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0a0a0c]/85 hover:bg-[#1a1a26] text-white text-[11px] font-semibold border border-white/15 backdrop-blur-md shadow-lg transition-colors cursor-pointer"
-                    title={lang === 'bn' ? 'ছবি পরিবর্তন বা আপলোড করুন' : 'Upload or change photo'}
-                  >
-                    <Camera className="w-3.5 h-3.5 text-[#dfb86c]" />
-                    <span>{lang === 'bn' ? 'ছবি পরিবর্তন' : 'Change Photo'}</span>
-                  </button>
-                </div>
-              </div>
 
-              {/* Founder Information Overlay Card */}
-              <div className="p-6 bg-[#161622] border-t border-white/10 space-y-3">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <span className="text-[11px] uppercase tracking-wider font-semibold text-[#dfb86c]">
-                      {t.about.founderLabel}
-                    </span>
-                    <h3 className="text-xl font-bold text-white mt-0.5">
-                      {lang === 'bn' ? brandConfig.founder.bn : brandConfig.founder.en}
-                    </h3>
-                    <p className="text-xs text-neutral-400 mt-0.5">
-                      {lang === 'bn' ? brandConfig.role.bn : brandConfig.role.en}
-                    </p>
-                  </div>
-
-                  <div className="w-10 h-10 rounded-lg bg-[#9e1b32]/20 border border-[#9e1b32]/40 flex items-center justify-center text-[#f43f5e]">
-                    <User className="w-5 h-5" />
-                  </div>
-                </div>
-
-                {/* Direct Contact Pills on Founder Card */}
-                <div className="pt-2 border-t border-white/5 space-y-2 text-xs">
-                  <div className="flex items-center justify-between text-neutral-300">
-                    <span className="flex items-center gap-1.5 text-neutral-400">
-                      <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
-                      <span>WhatsApp:</span>
-                    </span>
-                    <a
-                      href={brandConfig.contact.whatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-mono text-[#25D366] hover:underline font-semibold"
+                  {/* Instant Photo Upload Button */}
+                  <div className="absolute bottom-3 right-3 z-20">
+                    <input
+                      type="file"
+                      ref={fileInputRef}
+                      onChange={handleImageUpload}
+                      accept="image/*"
+                      className="hidden"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => fileInputRef.current?.click()}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0a0a0c]/85 hover:bg-[#1a1a26] text-white text-[11px] font-semibold border border-white/15 backdrop-blur-md shadow-lg transition-colors cursor-pointer"
+                      title={lang === 'bn' ? 'ছবি পরিবর্তন বা আপলোড করুন' : 'Upload or change photo'}
                     >
-                      {brandConfig.contact.whatsappDisplay}
-                    </a>
+                      <Camera className="w-3.5 h-3.5 text-[#dfb86c]" />
+                      <span>{lang === 'bn' ? 'ছবি পরিবর্তন' : 'Change Photo'}</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Founder Information Overlay Card */}
+                <div className="p-6 bg-[#161622] border-t border-white/10 space-y-3">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <span className="text-[11px] uppercase tracking-wider font-semibold text-[#dfb86c]">
+                        {t.about.founderLabel}
+                      </span>
+                      <h3 className="text-xl font-bold text-white mt-0.5">
+                        {lang === 'bn' ? brandConfig.founder.bn : brandConfig.founder.en}
+                      </h3>
+                      <p className="text-xs text-neutral-400 mt-0.5">
+                        {lang === 'bn' ? brandConfig.role.bn : brandConfig.role.en}
+                      </p>
+                    </div>
+
+                    <div className="w-10 h-10 rounded-lg bg-[#9e1b32]/20 border border-[#9e1b32]/40 flex items-center justify-center text-[#f43f5e]">
+                      <User className="w-5 h-5" />
+                    </div>
                   </div>
 
-                  <div className="flex items-center justify-between text-neutral-300">
-                    <span className="flex items-center gap-1.5 text-neutral-400">
-                      <Mail className="w-3.5 h-3.5 text-[#dfb86c]" />
-                      <span>Email:</span>
+                  {/* Direct Contact Pills on Founder Card */}
+                  <div className="pt-2 border-t border-white/5 space-y-2 text-xs">
+                    <div className="flex items-center justify-between text-neutral-300">
+                      <span className="flex items-center gap-1.5 text-neutral-400">
+                        <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+                        <span>WhatsApp:</span>
+                      </span>
+                      <a
+                        href={brandConfig.contact.whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-mono text-[#25D366] hover:underline font-semibold"
+                      >
+                        {brandConfig.contact.whatsappDisplay}
+                      </a>
+                    </div>
+
+                    <div className="flex items-center justify-between text-neutral-300">
+                      <span className="flex items-center gap-1.5 text-neutral-400">
+                        <Mail className="w-3.5 h-3.5 text-[#dfb86c]" />
+                        <span>Email:</span>
+                      </span>
+                      <a
+                        href={`mailto:${brandConfig.contact.email}`}
+                        className="font-mono text-neutral-200 hover:text-white hover:underline text-[11px] truncate max-w-[200px]"
+                      >
+                        {brandConfig.contact.email}
+                      </a>
+                    </div>
+
+                    {/* Social profiles row: Facebook & LinkedIn */}
+                    <div className="flex items-center justify-between pt-1 text-[11px]">
+                      <a
+                        href={brandConfig.contact.facebookUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#1877F2] hover:underline flex items-center gap-1 font-medium"
+                      >
+                        <svg viewBox="0 0 24 24" className="w-3 h-3 fill-current">
+                          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                        <span>Facebook Profile</span>
+                      </a>
+                      <a
+                        href={brandConfig.contact.linkedinUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#0a66c2] hover:underline flex items-center gap-1 font-medium"
+                      >
+                        <span className="font-bold text-[10px] bg-[#0a66c2] text-white px-1 rounded-sm">in</span>
+                        <span>LinkedIn</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-neutral-400">
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-[#dfb86c]" />
+                      <span>{lang === 'bn' ? brandConfig.contact.location.bn : brandConfig.contact.location.en}</span>
                     </span>
-                    <a
-                      href={`mailto:${brandConfig.contact.email}`}
-                      className="font-mono text-neutral-200 hover:text-white hover:underline text-[11px] truncate max-w-[200px]"
-                    >
-                      {brandConfig.contact.email}
-                    </a>
+                    <span className="text-[#dfb86c] font-semibold">5+ Yrs</span>
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-neutral-400">
-                  <span className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#dfb86c]" />
-                    <span>{lang === 'bn' ? brandConfig.contact.location.bn : brandConfig.contact.location.en}</span>
-                  </span>
-                  <span className="text-[#dfb86c] font-semibold">5+ Yrs</span>
-                </div>
               </div>
-
             </div>
           </div>
 

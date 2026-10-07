@@ -36,14 +36,14 @@ export const brandConfig = {
     whatsappNumber: '8801923057893',
     whatsappDisplay: '01923057893',
     location: {
-      bn: 'ঢাকা, বাংলাদেশ (রিমোট সার্ভিস বিশ্বব্যাপী)',
-      en: 'Dhaka, Bangladesh (Remote worldwide)',
+      bn: 'কোনাবাড়ী, গাজীপুর',
+      en: 'Konabari, Gazipur',
     },
-    facebookUrl: 'https://facebook.com/ardesignbd',
+    facebookUrl: 'https://www.facebook.com/Abrgaraphic',
     whatsappUrl: 'https://wa.me/8801923057893',
     behanceUrl: 'https://behance.net/ardesignbd',
     dribbbleUrl: 'https://dribbble.com/ardesignbd',
-    linkedinUrl: 'https://linkedin.com/in/ardesignbd',
+    linkedinUrl: 'https://www.linkedin.com/in/rubelboss2',
   },
 
   // Central Image System

@@ -191,11 +191,21 @@ export const Hero: React.FC = () => {
                 </div>
               </div>
 
-              <div className="hidden sm:flex items-center gap-2 absolute -top-4 -right-4 bg-[#171724]/95 backdrop-blur-md border border-[#9e1b32]/30 rounded-xl px-3 py-2 shadow-2xl">
-                <span className="w-2 h-2 rounded-full bg-[#f43f5e]" />
-                <span className="text-xs font-semibold text-neutral-200">
-                  {lang === 'bn' ? 'প্রফেশনাল কোয়ালিটি' : 'Vector Precision'}
-                </span>
+              {/* Animated Rotating Border Badge: "প্রফেশনাল কোয়ালিটি" with Green & Red lighting */}
+              <div className="hidden sm:block absolute -top-4 -right-4 z-20">
+                <div className="relative p-[2px] rounded-xl overflow-hidden shadow-2xl shadow-emerald-950/40">
+                  {/* Rotating Conic Gradient: Green & Red */}
+                  <div className="absolute -inset-[150%] animate-spin-fast bg-[conic-gradient(#10b981_0deg,#ef4444_90deg,#059669_180deg,#dc2626_270deg,#10b981_360deg)]" />
+                  
+                  {/* Badge Content */}
+                  <div className="relative z-10 flex items-center gap-2 px-3 py-1.5 rounded-[10px] bg-[#0f1118]/95 backdrop-blur-md">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]" />
+                    <span className="text-xs font-bold text-white tracking-wide">
+                      {lang === 'bn' ? 'প্রফেশনাল কোয়ালিটি' : 'Professional Quality'}
+                    </span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
+                  </div>
+                </div>
               </div>
 
             </div>

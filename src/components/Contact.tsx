@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, MessageCircle, Send, CheckCircle2, AlertCircle, Phone, ArrowUpRight, Copy, Check } from 'lucide-react';
+import { Mail, MessageCircle, Send, CheckCircle2, AlertCircle, Phone, ArrowUpRight, Copy, Check, MapPin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { brandConfig } from '../data/config';
 import { servicesData } from '../data/servicesData';
@@ -124,6 +124,10 @@ export const Contact: React.FC<ContactProps> = ({ selectedService }) => {
                 <p className="text-xs text-neutral-400 mt-1">
                   {lang === 'bn' ? brandConfig.founder.bn : brandConfig.founder.en} • {lang === 'bn' ? brandConfig.role.bn : brandConfig.role.en}
                 </p>
+                <p className="text-xs text-[#dfb86c] mt-1 flex items-center gap-1.5 font-medium">
+                  <MapPin className="w-3.5 h-3.5 text-[#dfb86c]" />
+                  <span>{lang === 'bn' ? brandConfig.contact.location.bn : brandConfig.contact.location.en}</span>
+                </p>
               </div>
 
               {/* Channels List */}
@@ -219,6 +223,29 @@ export const Contact: React.FC<ContactProps> = ({ selectedService }) => {
                       </p>
                       <p className="text-xs text-neutral-400">
                         {t.contact.directChannels.facebookDesc}
+                      </p>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-neutral-500 group-hover:text-white transition-colors" />
+                </a>
+
+                {/* LinkedIn */}
+                <a
+                  href={brandConfig.contact.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-[#161622] hover:bg-[#1a1a29] border border-white/5 hover:border-[#0a66c2]/40 transition-all group"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-[#0a66c2]/20 border border-[#0a66c2]/30 flex items-center justify-center text-[#0a66c2]">
+                      <span className="font-bold text-sm">in</span>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-white group-hover:text-[#0a66c2] transition-colors">
+                        LinkedIn Profile
+                      </p>
+                      <p className="text-xs text-neutral-400 font-mono">
+                        linkedin.com/in/rubelboss2
                       </p>
                     </div>
                   </div>

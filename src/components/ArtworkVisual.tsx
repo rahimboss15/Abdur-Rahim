@@ -78,8 +78,10 @@ export const ArtworkVisual: React.FC<ArtworkVisualProps> = ({
       {type === 'portrait' && (
         <div className="relative w-full h-full flex flex-col items-center justify-center p-6 text-center">
           {/* Studio Portrait composition with Abdur Rahim's Blue Suit & Beard */}
-          <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-full p-[3px] bg-gradient-to-tr from-[#1d4ed8] via-[#dfb86c] to-[#9e1b32] shadow-2xl">
-            <div className="w-full h-full rounded-full bg-[#0d1322] overflow-hidden flex items-center justify-center relative">
+          <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-full p-[3px] overflow-hidden shadow-2xl">
+            {/* Rotating Conic Lighting Animation */}
+            <div className="absolute -inset-[150%] animate-spin-slow bg-[conic-gradient(from_0deg,#dfb86c_0deg,#f43f5e_90deg,#9e1b32_180deg,#dfb86c_270deg,#dfb86c_360deg)] opacity-95" />
+            <div className="w-full h-full rounded-full bg-[#0d1322] overflow-hidden flex items-center justify-center relative z-10">
               <svg viewBox="0 0 200 200" className="w-full h-full">
                 <defs>
                   <linearGradient id="suitBlue" x1="0%" y1="0%" x2="100%" y2="100%">
