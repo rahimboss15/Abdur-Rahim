@@ -51,6 +51,6 @@ export const brandConfig = {
     logoImage: 'https://res.cloudinary.com/bsfkdefy/image/upload/v1791306789/AR_DesignBD_Gold_Crest_Logo.png',
     profileImage: 'https://res.cloudinary.com/bsfkdefy/image/upload/v1791306433/Gemini_Generated_Image_r0t5sgr0t5sgr0t5_1.png',
     heroMockupImage: '',
-    aboutImage: 'https://res.cloudinary.com/bsfkdefy/image/upload/v1791306433/Gemini_Generated_Image_r0t5sgr0t5sgr0t5_1.png',
+    aboutImage: 'https://res.cloudinary.com/bsfkdefy/image/upload/v1791366240/IMG20240423100519_copy.jpg',
   },
 };

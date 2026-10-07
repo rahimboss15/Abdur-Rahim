@@ -14,6 +14,18 @@ export const Hero: React.FC = () => {
     }
   };
 
+  const heroPhoto = (() => {
+    try {
+      const custom = localStorage.getItem('ar_designbd_custom_profile');
+      if (custom && (custom.startsWith('data:image') || custom.startsWith('http'))) {
+        return custom;
+      }
+    } catch {
+      // ignore
+    }
+    return brandConfig.images.profileImage;
+  })();
+
   return (
     <section id="home" className="relative min-h-[92vh] pt-28 pb-16 md:pt-36 md:pb-24 flex items-center bg-[#0a0a0c] overflow-hidden">
       {/* Ambient background glows with Burgundy & Gold */}
@@ -140,74 +152,57 @@ export const Hero: React.FC = () => {
 
           </div>
 
-          {/* Right Column: Premium Visual Studio Showcase Composition */}
-          <div className="lg:col-span-5 relative flex justify-center">
+          {/* Right Column: Abdur Rahim's Photo with Red & Green Rotating Light Border */}
+          <div className="lg:col-span-5 relative flex flex-col items-center justify-center">
             
-            {/* Visual Frame */}
-            <div className="relative w-full max-w-md lg:max-w-none">
-              
-              {/* Main Showcase Artwork */}
-              <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#12121a] shadow-2xl group">
-                <ArtworkVisual
-                  type="hero"
-                  title="AR DesignBD Studio"
-                  subtitle="Creative Graphic Design & Video Suite"
-                  imageUrl={brandConfig.images.heroMockupImage}
-                  aspectRatio="4:3"
-                />
+            {/* Ambient Red & Green Glow Behind Card */}
+            <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-tr from-emerald-500/25 via-red-500/20 to-emerald-500/25 blur-xl opacity-75 pointer-events-none" />
 
-                {/* Bottom Overlay Label */}
-                <div className="p-4 bg-[#14141e]/90 backdrop-blur-md border-t border-white/5 flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-[#9e1b32]/20 border border-[#9e1b32]/40 flex items-center justify-center text-[#f43f5e]">
-                      <Palette className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-white tracking-wide">
-                        AR DesignBD • {lang === 'bn' ? 'ক্রিয়েটিভ স্টুডিও' : 'Creative Studio'}
-                      </h4>
-                      <p className="text-[11px] text-neutral-400">
-                        {lang === 'bn' ? 'ব্র্যান্ডিং, প্রিন্ট ও ডিজিটাল মিডিয়া' : 'Branding, Print & Motion Media'}
-                      </p>
-                    </div>
+            {/* Photo Card with Animated Red & Green Rotating Light Border (চারপাশে লাল ও সবুজ রঙের ঘূর্ণায়মান লাইটিং) */}
+            <div className="relative p-[4px] rounded-2xl overflow-hidden shadow-2xl shadow-black/80 max-w-sm sm:max-w-md w-full">
+              {/* Rotating Conic Gradient: Red & Green (লাল ও সবুজ রঙের ঘূর্ণায়মান দাগ) */}
+              <div 
+                className="absolute -inset-[200%] animate-spin-fast"
+                style={{
+                  background: 'conic-gradient(from 0deg, #10b981 0deg, #ef4444 60deg, #059669 120deg, #dc2626 180deg, #10b981 240deg, #ef4444 300deg, #10b981 360deg)',
+                }}
+              />
+
+              {/* Inner Frame Container (ফ্রেমের ভিতরে ছবি ও সংক্ষিপ্ত ট্যাগলাইন) */}
+              <div className="relative z-10 rounded-[12px] overflow-hidden bg-[#0d0f17] flex flex-col w-full">
+                {/* Photo container: Scaled and cropped to cleanly eliminate any Gemini watermark */}
+                <div className="relative aspect-[4/4.3] w-full overflow-hidden bg-[#0a0a0e]">
+                  <img
+                    src={heroPhoto}
+                    alt="Abdur Rahim - AR DesignBD"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover object-top scale-[1.14] origin-top -translate-y-1 transition-transform duration-500 hover:scale-[1.17]"
+                  />
+                  {/* Bottom gradient fade */}
+                  <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#0e0e16] to-transparent pointer-events-none" />
+                </div>
+
+                {/* Captivating & Concise Tagline INSIDE the frame (ফ্রেমের ভিতরে সংক্ষিপ্ত মন কাড়ানো ট্যাগলাইন) */}
+                <div className="py-3 px-4 bg-[#0e0e16] border-t border-white/10 text-center space-y-1">
+                  <div className="flex items-center justify-center gap-1.5 text-[#dfb86c] text-[11px] font-semibold">
+                    <Sparkles className="w-3.5 h-3.5 text-[#dfb86c]" />
+                    <span>{lang === 'bn' ? 'সৃজনশীল ভাবনায় অনন্য শিল্প' : 'Artistry in Every Pixel'}</span>
                   </div>
-
-                  <span className="text-[11px] font-mono text-[#dfb86c] font-semibold bg-[#dfb86c]/10 px-2 py-1 rounded">
-                    EST. 2021
-                  </span>
-                </div>
-              </div>
-
-              {/* Floating Accents */}
-              <div className="hidden sm:flex items-center gap-3 absolute -bottom-5 -left-5 bg-[#171724]/95 backdrop-blur-md border border-white/10 rounded-xl p-3 shadow-2xl">
-                <div className="w-8 h-8 rounded-lg bg-[#dfb86c]/20 border border-[#dfb86c]/30 flex items-center justify-center text-[#dfb86c]">
-                  <Award className="w-4 h-4" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-white">100% Custom Work</p>
-                  <p className="text-[10px] text-neutral-400">
-                    {lang === 'bn' ? 'কপিরাইট ফ্রি অরিজিনাল ফাইল' : 'Original Vector Assets'}
+                  <p className="text-sm sm:text-base font-bold text-white tracking-tight leading-snug">
+                    {lang === 'bn' ? (
+                      <>
+                        "কল্পনা থেকে নান্দনিক সৃষ্টি —{' '}
+                        <span className="gold-gradient-text">স্বপ্নের ব্র্যান্ডের রূপকার</span>"
+                      </>
+                    ) : (
+                      <>
+                        "Crafting Iconic Identities —{' '}
+                        <span className="gold-gradient-text">From Vision to Reality</span>"
+                      </>
+                    )}
                   </p>
                 </div>
               </div>
-
-              {/* Animated Rotating Border Badge: "প্রফেশনাল কোয়ালিটি" with Green & Red lighting */}
-              <div className="hidden sm:block absolute -top-4 -right-4 z-20">
-                <div className="relative p-[2px] rounded-xl overflow-hidden shadow-2xl shadow-emerald-950/40">
-                  {/* Rotating Conic Gradient: Green & Red */}
-                  <div className="absolute -inset-[150%] animate-spin-fast bg-[conic-gradient(#10b981_0deg,#ef4444_90deg,#059669_180deg,#dc2626_270deg,#10b981_360deg)]" />
-                  
-                  {/* Badge Content */}
-                  <div className="relative z-10 flex items-center gap-2 px-3 py-1.5 rounded-[10px] bg-[#0f1118]/95 backdrop-blur-md">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]" />
-                    <span className="text-xs font-bold text-white tracking-wide">
-                      {lang === 'bn' ? 'প্রফেশনাল কোয়ালিটি' : 'Professional Quality'}
-                    </span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
-                  </div>
-                </div>
-              </div>
-
             </div>
 
           </div>

@@ -111,28 +111,27 @@
   z-index: 0;
 }
 
-/* Red & Green rotating lighting for professional quality badge */
-.rotating-border-green-red {
-  position: relative;
-  overflow: hidden;
+/* Bouncing / Jumping animation for header CTA button */
+@keyframes headerBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-6px);
+  }
+  40% {
+    transform: translateY(0);
+  }
+  55% {
+    transform: translateY(-3px);
+  }
+  70% {
+    transform: translateY(0);
+  }
 }
 
-.rotating-border-green-red::before {
-  content: '';
-  position: absolute;
-  top: -100%;
-  left: -100%;
-  width: 300%;
-  height: 300%;
-  background: conic-gradient(
-    #10b981 0deg,
-    #ef4444 90deg,
-    #059669 180deg,
-    #dc2626 270deg,
-    #10b981 360deg
-  );
-  animation: spinLinear 2.8s linear infinite;
-  z-index: 0;
+.animate-jump-rhythm {
+  animation: headerBounce 2.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
 }
 
 

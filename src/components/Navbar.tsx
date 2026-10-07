@@ -107,11 +107,11 @@ export const Navbar: React.FC = () => {
               </button>
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button (শিরোনামের মতো লাফাবে) */}
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-xs font-semibold text-white bg-gradient-to-r from-[#9e1b32] to-[#7f1325] hover:from-[#b91c38] hover:to-[#9e1b32] border border-[#f43f5e]/30 shadow-md transition-all duration-200 whitespace-nowrap"
+              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-xs font-semibold text-white bg-gradient-to-r from-[#9e1b32] to-[#7f1325] hover:from-[#b91c38] hover:to-[#9e1b32] border border-[#f43f5e]/30 shadow-md shadow-[#9e1b32]/25 transition-all duration-200 whitespace-nowrap animate-jump-rhythm hover:animate-none cursor-pointer"
             >
               <span>{t.nav.ctaButton}</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#dfb86c]" />
